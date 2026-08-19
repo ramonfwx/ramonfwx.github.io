@@ -1,0 +1,10 @@
+# Local dev tooling (not needed for the published site)
+.claude/
+
+# Original high-resolution source files — the site uses the optimized copies in /web/
+assets/design/*/*.*
+assets/drone/*.JPG
+assets/drone/*.jpg
+
+# Old backup
+files.zip

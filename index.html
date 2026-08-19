@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ramon Lima — Portfólio</title>
+<meta name="description" content="Portfólio de Ramon Lima: design gráfico, edição de vídeo, pilotagem de drone e programação com IA.">
+<meta property="og:title" content="Ramon Lima — Portfólio">
+<meta property="og:description" content="Design gráfico, edição de vídeo, pilotagem de drone e programação com IA.">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/logo/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<canvas id="starfield" aria-hidden="true"></canvas>
+
+<header class="site-header">
+  <a href="#topo" class="logo">
+    <span class="logo-pulse" aria-hidden="true"></span>
+    <span class="logo-pulse" aria-hidden="true"></span>
+    <span class="logo-pulse" aria-hidden="true"></span>
+    <img src="assets/logo/logo-ramon.png" alt="Ramon Lima" class="logo-img">
+  </a>
+  <nav class="main-nav">
+    <a href="#sobre">Sobre</a>
+    <a href="#trabalhos">Trabalhos</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- HERO: CONSTELAÇÃO -->
+  <section id="topo" class="hero">
+    <div class="hero-text">
+      <p class="eyebrow">PORTFÓLIO · BASE OPERACIONAL: PARÁ, BR</p>
+      <h1>Ramon Lima</h1>
+      <p class="hero-sub">Quatro habilidades, uma só constelação. Toque ou passe o mouse nos pontos ao lado.</p>
+      <div class="hero-actions">
+        <a href="#trabalhos" class="btn btn-primary">Ver trabalhos</a>
+        <a href="#contato" class="btn btn-ghost">Falar comigo</a>
+      </div>
+    </div>
+
+    <div class="constelacao-wrap">
+      <svg class="constelacao" viewBox="0 0 500 500" aria-hidden="true">
+        <line class="linha" x1="250" y1="250" x2="120" y2="130" data-node="design"></line>
+        <line class="linha" x1="250" y1="250" x2="380" y2="120" data-node="video"></line>
+        <line class="linha" x1="250" y1="250" x2="400" y2="340" data-node="drone"></line>
+        <line class="linha" x1="250" y1="250" x2="130" y2="370" data-node="dev"></line>
+        <line class="linha linha-fina" x1="120" y1="130" x2="380" y2="120"></line>
+        <line class="linha linha-fina" x1="380" y1="120" x2="400" y2="340"></line>
+        <line class="linha linha-fina" x1="400" y1="340" x2="130" y2="370"></line>
+        <line class="linha linha-fina" x1="130" y1="370" x2="120" y2="130"></line>
+
+        <circle class="estrela-central" cx="250" cy="250" r="10"></circle>
+
+        <g class="node" data-node="design" tabindex="0">
+          <circle class="node-pulse-ring" cx="120" cy="130" r="7"></circle>
+          <circle class="node-pulse-ring node-pulse-ring-2" cx="120" cy="130" r="7"></circle>
+          <circle cx="120" cy="130" r="7"></circle>
+          <text x="120" y="105" text-anchor="middle">DESIGN</text>
+        </g>
+        <g class="node" data-node="video" tabindex="0">
+          <circle class="node-pulse-ring" cx="380" cy="120" r="7"></circle>
+          <circle class="node-pulse-ring node-pulse-ring-2" cx="380" cy="120" r="7"></circle>
+          <circle cx="380" cy="120" r="7"></circle>
+          <text x="380" y="95" text-anchor="middle">VÍDEO</text>
+        </g>
+        <g class="node" data-node="drone" tabindex="0">
+          <circle class="node-pulse-ring" cx="400" cy="340" r="7"></circle>
+          <circle class="node-pulse-ring node-pulse-ring-2" cx="400" cy="340" r="7"></circle>
+          <circle cx="400" cy="340" r="7"></circle>
+          <text x="400" y="365" text-anchor="middle">DRONE</text>
+        </g>
+        <g class="node" data-node="dev" tabindex="0">
+          <circle class="node-pulse-ring" cx="130" cy="370" r="7"></circle>
+          <circle class="node-pulse-ring node-pulse-ring-2" cx="130" cy="370" r="7"></circle>
+          <circle cx="130" cy="370" r="7"></circle>
+          <text x="130" y="395" text-anchor="middle">DEVELOPER</text>
+        </g>
+      </svg>
+
+      <div class="node-info" id="node-info">
+        <p class="node-info-tag">// TOQUE OU PASSE O MOUSE</p>
+        <p class="node-info-desc">Cada ponto da constelação é uma área de atuação.</p>
+      </div>
+    </div>
+
+    <a class="scroll-hint" href="#sobre" aria-label="Rolar para a próxima seção">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- SOBRE -->
+  <section id="sobre" class="sobre reveal">
+    <p class="section-label">// SOBRE</p>
+    <h2>Quatro instrumentos, um único operador.</h2>
+    <p class="sobre-texto">
+      Trabalho na fronteira entre imagem e sistema: assino identidade visual como
+      designer gráfico, dou ritmo e narrativa como editor de vídeo, levanto voo como
+      piloto de drone pra capturar ângulos que ninguém vê do chão, e escrevo código
+      apoiado em IA pra transformar essas ideias em produto. Fora da tela, também sou
+      fisioterapeuta, com pós-graduação em musculoesquelética, neurofuncional e
+      terapia intensiva.
+    </p>
+
+    <div class="skills-panel">
+      <div class="skill-row"><span class="skill-tag">DESIGN GRÁFICO</span><span class="skill-desc">identidade visual, artes e composição</span></div>
+      <div class="skill-row"><span class="skill-tag">EDIÇÃO DE VÍDEO</span><span class="skill-desc">corte, cor e narrativa audiovisual</span></div>
+      <div class="skill-row"><span class="skill-tag">PILOTAGEM DE DRONE</span><span class="skill-desc">captação aérea e enquadramento</span></div>
+      <div class="skill-row"><span class="skill-tag">PROGRAMAÇÃO</span><span class="skill-desc">produtos e ferramentas</span></div>
+    </div>
+  </section>
+
+  <!-- TRABALHOS -->
+  <section id="trabalhos" class="trabalhos reveal">
+    <p class="section-label">// TRABALHOS</p>
+    <h2>Galeria</h2>
+
+    <div class="filtros" role="tablist" aria-label="Filtrar trabalhos por categoria">
+      <button class="filtro" data-filtro="design">Design</button>
+      <button class="filtro" data-filtro="video">Vídeo</button>
+      <button class="filtro" data-filtro="drone">Drone</button>
+      <button class="filtro" data-filtro="dev">Developer</button>
+    </div>
+
+    <div class="galeria">
+      <article class="card card-clickable" data-cat="design" data-galeria="design-armazem" tabindex="0" role="button" aria-label="Ver galeria Armazém dos Tubos">
+        <div class="card-photo" style="background-image:url('assets/design/Armazem dos tubos/web/ARMAZEM DOS TUBOS COM FUNDO LOGO.psd.png')"></div>
+        <div class="card-info"><span class="card-tag">DESIGN</span><h3>Armazém dos Tubos</h3><p>Identidade visual para loja de tubos e conexões.</p><span class="card-link">Ver galeria →</span></div>
+      </article>
+      <article class="card card-clickable" data-cat="design" data-galeria="design-acai" tabindex="0" role="button" aria-label="Ver galeria Açaí Kidelícia">
+        <div class="card-photo" style="background-image:url('assets/design/Açaí Kidelicia/web/Logo com fundo açai em 3D.png')"></div>
+        <div class="card-info"><span class="card-tag">DESIGN</span><h3>Açaí Kidelícia</h3><p>Identidade visual para açaiteria.</p><span class="card-link">Ver galeria →</span></div>
+      </article>
+      <article class="card card-clickable" data-cat="design" data-galeria="design-fazenda" tabindex="0" role="button" aria-label="Ver galeria Fazenda Renascer">
+        <div class="card-photo" style="background-image:url('assets/design/Fazenda Renascer/web/Logo marca em 3d.png')"></div>
+        <div class="card-info"><span class="card-tag">DESIGN</span><h3>Fazenda Renascer</h3><p>Identidade visual para propriedade rural.</p><span class="card-link">Ver galeria →</span></div>
+      </article>
+      <article class="card card-clickable" data-cat="design" data-galeria="design-jadson" tabindex="0" role="button" aria-label="Ver galeria Folder Jadson">
+        <div class="card-photo" style="background-image:url('assets/design/Folder/web/Folder Jadson.png')"></div>
+        <div class="card-info"><span class="card-tag">DESIGN</span><h3>Folder — Jadson</h3><p>Peça gráfica impressa sob encomenda.</p><span class="card-link">Ver galeria →</span></div>
+      </article>
+      <article class="card card-clickable" data-cat="design" data-galeria="design-jhenifer" tabindex="0" role="button" aria-label="Ver galeria Jhenifer Kayte">
+        <div class="card-photo" style="background-image:url('assets/design/Jhenifer Kayte/web/page-1.png')"></div>
+        <div class="card-info"><span class="card-tag">DESIGN</span><h3>Jhenifer Kayte</h3><p>Identidade visual pessoal.</p><span class="card-link">Ver galeria →</span></div>
+      </article>
+      <article class="card card-clickable" data-cat="design" data-galeria="design-sfcloset" tabindex="0" role="button" aria-label="Ver galeria SF Closet">
+        <div class="card-photo" style="background-image:url('assets/design/SF Closet/web/Logo Com frase Mockup Efeito 3D.png')"></div>
+        <div class="card-info"><span class="card-tag">DESIGN</span><h3>SF Closet</h3><p>Identidade visual para closets planejados.</p><span class="card-link">Ver galeria →</span></div>
+      </article>
+      <article class="card card-clickable" data-cat="design" data-galeria="design-transportes" tabindex="0" role="button" aria-label="Ver galeria Transportes Pé no Chão">
+        <div class="card-photo" style="background-image:url('assets/design/Transportes pé no chão/web/Diferencial dianteiro completo.png')"></div>
+        <div class="card-info"><span class="card-tag">DESIGN</span><h3>Transportes Pé no Chão</h3><p>Identidade e peças gráficas para transportadora.</p><span class="card-link">Ver galeria →</span></div>
+      </article>
+      <article class="card card-clickable" data-cat="design" data-galeria="design-camping" tabindex="0" role="button" aria-label="Ver galeria Camping Maloca E Rodas">
+        <div class="card-photo" style="background-image:url('assets/design/Camping Maloca E Rodas/web/page-1.png')"></div>
+        <div class="card-info"><span class="card-tag">DESIGN</span><h3>Camping Maloca E Rodas</h3><p>Manual de identidade visual completo.</p><span class="card-link">Ver galeria →</span></div>
+      </article>
+      <article class="card card-clickable" data-cat="design" data-galeria="design-wicity" tabindex="0" role="button" aria-label="Ver galeria WiCity">
+        <div class="card-photo" style="background-image:url('assets/design/WiCity/web/Mockup fachada intera.png')"></div>
+        <div class="card-info"><span class="card-tag">DESIGN</span><h3>WiCity</h3><p>Identidade visual e aplicações de marca.</p><span class="card-link">Ver galeria →</span></div>
+      </article>
+      <article class="card card-clickable" data-cat="video" data-video-galeria="reels" tabindex="0" role="button" aria-label="Ver reels de vídeo">
+        <div class="card-photo" style="background-image:url('assets/video/cover.jpg'); background-position:top center;"></div>
+        <div class="card-info"><span class="card-tag">VÍDEO</span><h3>Reels para Instagram</h3><p>Vídeos verticais produzidos para redes sociais.</p><span class="card-link">Ver vídeos →</span></div>
+      </article>
+      <article class="card card-clickable" data-cat="drone" data-galeria="drone" tabindex="0" role="button" aria-label="Ver galeria de fotos de drone">
+        <div class="card-photo" style="background-image:url('assets/drone/web/DJI_0121.jpg')"></div>
+        <div class="card-info"><span class="card-tag">DRONE</span><h3>Imagens em geral</h3><p>Praias, cidades e rios do Pará vistos do alto.</p><span class="card-link">Ver galeria →</span></div>
+      </article>
+      <article class="card card-clickable" data-cat="dev" data-link="#topo" tabindex="0" role="button" aria-label="Voltar ao topo — você está neste projeto agora">
+        <div class="card-photo" style="background-image:url('assets/ia/portfolio-cover.png')"></div>
+        <div class="card-info"><span class="card-tag">DEVELOPER</span><h3>Portfólio Ramon Lima</h3><p>Este site construído do zero com minhas ideias, e auxílio de IA.</p><span class="card-link">Você está aqui ↑</span></div>
+      </article>
+      <article class="card card-clickable" data-cat="dev" data-link="https://wicity.com.br/" tabindex="0" role="button" aria-label="Ver site WiCity">
+        <div class="card-photo" style="background-image:url('assets/design/WiCity/web/Mockup Painel de dados.png')"></div>
+        <div class="card-info"><span class="card-tag">DEVELOPER</span><h3>WiCity</h3><p>Melhorias e personalização de site para provedor de Wi-Fi.</p><span class="card-link">Ver site →</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="contato reveal">
+    <p class="section-label">// CONTATO</p>
+    <h2>Vamos conversar sobre seu projeto.</h2>
+
+    <div class="contato-card">
+      <form class="contato-form" id="form-contato">
+        <input type="hidden" name="access_key" value="0bfd5e88-7075-4889-98d6-22e79a596892">
+        <input type="hidden" name="subject" value="Novo contato pelo portfólio">
+        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+        <div class="form-row"><label for="nome">NOME</label><input type="text" id="nome" name="nome" required></div>
+        <div class="form-row"><label for="email">E-MAIL</label><input type="email" id="email" name="email" required></div>
+        <div class="form-row"><label for="mensagem">MENSAGEM</label><textarea id="mensagem" name="mensagem" rows="4" required></textarea></div>
+        <button type="submit" class="btn btn-primary">Enviar sinal</button>
+        <p class="form-status" id="form-status" role="status"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>© 2026 Ramon Lima. Todos os direitos reservados.</p>
+  <p class="visit-counter" id="visit-counter"></p>
+</footer>
+
+<div class="mosaic" id="mosaic" aria-hidden="true">
+  <button class="mosaic-close" id="mosaic-close" aria-label="Fechar mosaico">&times;</button>
+  <p class="mosaic-title" id="mosaic-title"></p>
+  <div class="mosaic-grid" id="mosaic-grid"></div>
+</div>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Fechar galeria">&times;</button>
+  <button class="lightbox-nav lightbox-prev" id="lightbox-prev" aria-label="Foto anterior">&#8249;</button>
+  <div class="lightbox-img-wrap">
+    <img class="lightbox-img" id="lightbox-img" src="" alt="">
+    <img class="lightbox-watermark" src="assets/logo/logo-ramon.png" alt="" aria-hidden="true">
+  </div>
+  <button class="lightbox-nav lightbox-next" id="lightbox-next" aria-label="Próxima foto">&#8250;</button>
+  <p class="lightbox-counter" id="lightbox-counter"></p>
+</div>
+
+<script async src="//www.instagram.com/embed.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
