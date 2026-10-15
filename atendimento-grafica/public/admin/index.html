@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Painel da gráfica</title>
+  <link rel="stylesheet" href="/shared.css">
+  <link rel="stylesheet" href="/admin/admin.css">
+</head>
+<body>
+  <div id="login" class="login" hidden>
+    <form class="card stack" id="loginForm">
+      <h1>Painel da gráfica</h1>
+      <p class="muted small">Entre com a senha de acesso.</p>
+      <label class="field"><span>Senha</span><input id="pw" type="password" autocomplete="current-password" required autofocus></label>
+      <button class="btn primary" type="submit">Entrar</button>
+      <p class="small" style="color:var(--red)" id="loginErr" role="alert"></p>
+    </form>
+  </div>
+
+  <div id="app" class="shell" hidden>
+    <nav class="side" aria-label="Menu principal">
+      <div class="brand"><span class="dot"></span><strong id="brandName">Gráfica</strong></div>
+      <a href="#/painel" data-r="painel">📊 Painel</a>
+      <a href="#/pedidos" data-r="pedidos">🧾 Pedidos <span class="count" id="cPedidos" hidden></span></a>
+      <a href="#/conversas" data-r="conversas">💬 Conversas <span class="count" id="cConv" hidden></span></a>
+      <a href="#/produtos" data-r="produtos">🏷️ Produtos e preços</a>
+      <a href="#/clientes" data-r="clientes">👥 Clientes</a>
+      <a href="#/config" data-r="config">⚙️ Configurações</a>
+      <div class="grow"></div>
+      <a href="/simulador/" target="_blank" rel="noopener" class="ext">📱 Simulador de WhatsApp ↗</a>
+      <a href="/orcamento/" target="_blank" rel="noopener" class="ext">📝 Ver página de orçamento ↗</a>
+      <button class="btn ghost sm" id="logout" type="button">Sair</button>
+    </nav>
+    <main id="view" class="view" tabindex="-1"></main>
+  </div>
+
+  <script type="module" src="/admin/app.js"></script>
+</body>
+</html>

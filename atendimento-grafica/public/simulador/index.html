@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simulador de WhatsApp</title>
+  <link rel="stylesheet" href="/shared.css">
+  <style>
+    body { display: grid; grid-template-columns: minmax(260px, 340px) 1fr; min-height: 100vh; }
+    aside { padding: 24px; border-right: 1px solid var(--line); background: var(--card); }
+    aside h1 { font-size: 1.2rem; margin-bottom: 6px; }
+    aside .stack { margin-top: 18px; }
+    .stage { display: grid; place-items: center; padding: 24px; }
+    .phone {
+      width: min(390px, 100%); height: min(760px, calc(100vh - 48px));
+      background: #e8e1d6; border-radius: 28px; border: 9px solid #15171c; overflow: hidden;
+      display: grid; grid-template-rows: auto 1fr auto; box-shadow: 0 18px 50px rgba(0,0,0,.25);
+    }
+    .phone header { background: #0b6b5f; color: #fff; padding: 12px 14px; display: flex; gap: 10px; align-items: center; }
+    .avatar { width: 36px; height: 36px; border-radius: 50%; background: #fff3; display: grid; place-items: center; font-weight: 700; }
+    .phone header small { display: block; opacity: .8; font-size: .75rem; }
+    #feed { overflow-y: auto; padding: 14px 12px; display: flex; flex-direction: column; gap: 6px; }
+    .msg { max-width: 82%; padding: 7px 10px 5px; border-radius: 10px; font-size: .92rem; word-wrap: break-word; box-shadow: 0 1px 1px #0002; }
+    .msg.in { align-self: flex-end; background: #d9fdd3; border-top-right-radius: 2px; }
+    .msg.out { align-self: flex-start; background: #fff; border-top-left-radius: 2px; }
+    .msg time { display: block; text-align: right; font-size: .68rem; color: #667; margin-top: 2px; }
+    .msg .who { font-size: .68rem; font-weight: 700; color: var(--accent); }
+    .phone form { display: flex; gap: 8px; padding: 8px; background: #f0eee9; }
+    .phone input { border-radius: 20px; }
+    .phone button { border-radius: 50%; width: 42px; padding: 0; }
+    .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .chip { border: 1px solid var(--line); background: var(--paper); border-radius: 99px; padding: 5px 11px; cursor: pointer; font-size: .85rem; }
+    .chip:hover { background: var(--accent-soft); border-color: var(--accent); }
+    .banner { background: #fff7d6; border: 1px solid #ecd98b; border-radius: 8px; padding: 10px 12px; font-size: .85rem; }
+    @media (max-width: 800px) { body { grid-template-columns: 1fr; } aside { border-right: 0; border-bottom: 1px solid var(--line); } }
+  </style>
+</head>
+<body>
+  <aside>
+    <h1>Simulador de WhatsApp</h1>
+    <p class="muted small">Finja ser um cliente falando com a gráfica. O robô responde como responderia no WhatsApp de verdade, e a conversa aparece no painel.</p>
+    <div class="stack">
+      <label class="field"><span>Seu nome</span><input id="name" type="text" value="Maria Silva"></label>
+      <label class="field"><span>Seu número (com DDD)</span><input id="phone" type="tel" value="5511999990000"></label>
+      <button class="btn" id="reset" type="button">Limpar esta conversa</button>
+      <div>
+        <p class="small muted" style="margin-bottom:6px">Mensagens para testar:</p>
+        <div class="chips" id="chips"></div>
+      </div>
+      <p class="banner" id="humanBanner" hidden>Um atendente assumiu. O robô fica quieto até devolverem a conversa no painel.</p>
+      <p class="small"><a href="/admin/" target="_blank" rel="noopener">Abrir o painel da gráfica →</a></p>
+    </div>
+  </aside>
+
+  <main class="stage">
+    <section class="phone" aria-label="Conversa de WhatsApp simulada">
+      <header>
+        <div class="avatar" id="avatar">G</div>
+        <div><strong id="bizName">Gráfica</strong><small>online</small></div>
+      </header>
+      <div id="feed" aria-live="polite"></div>
+      <form id="form" autocomplete="off">
+        <input id="text" type="text" placeholder="Digite uma mensagem" aria-label="Mensagem" maxlength="2000">
+        <button class="btn primary" aria-label="Enviar" title="Enviar">➤</button>
+      </form>
+    </section>
+  </main>
+
+  <script type="module">
+    import { $, api, chatHtml, fmtTime } from '/shared.js';
+
+    const feed = $('#feed');
+    let after = 0;
+    let busy = false;
+
+    const phone = () => $('#phone').value.replace(/\D/g, '');
+
+    $('#chips').innerHTML = ['Oi, queria um orçamento', 'Quanto custa um banner?', 'Vocês fazem adesivo?', 'Qual a forma de pagamento?', 'Onde fica a gráfica?', 'Status do meu pedido', 'Falar com atendente']
+      .map((t) => `<button type="button" class="chip">${t}</button>`).join('');
+
+    function append(m) {
+      const el = document.createElement('div');
+      el.className = `msg ${m.direction}`;
+      const who = m.sender === 'human' ? '<div class="who">Atendente</div>' : '';
+      el.innerHTML = `${who}${chatHtml(m.body)}<time>${fmtTime(m.created_at)}</time>`;
+      feed.append(el);
+    }
+
+    async function poll() {
+      if (busy || phone().length < 10) return;
+      busy = true;
+      try {
+        const r = await api(`/api/sim/messages?phone=${phone()}&after=${after}`);
+        const stick = feed.scrollTop + feed.clientHeight >= feed.scrollHeight - 40;
+        for (const m of r.messages) { append(m); after = m.id; }
+        if (r.messages.length && stick) feed.scrollTop = feed.scrollHeight;
+        $('#humanBanner').hidden = !r.human;
+      } catch { /* servidor parado: tenta de novo */ }
+      busy = false;
+    }
+
+    async function send(text) {
+      if (!text.trim() || phone().length < 10) return;
+      $('#text').value = '';
+      try {
+        await api('/api/sim/send', { method: 'POST', body: { phone: phone(), name: $('#name').value, text } });
+        await poll();
+        feed.scrollTop = feed.scrollHeight;
+      } catch (e) { alert(e.message); }
+    }
+
+    $('#form').addEventListener('submit', (e) => { e.preventDefault(); send($('#text').value); });
+    $('#chips').addEventListener('click', (e) => { if (e.target.classList.contains('chip')) send(e.target.textContent); });
+    $('#reset').addEventListener('click', async () => {
+      await api('/api/sim/reset', { method: 'POST', body: { phone: phone() } });
+      feed.innerHTML = ''; after = 0;
+    });
+    $('#phone').addEventListener('change', () => { feed.innerHTML = ''; after = 0; poll(); });
+
+    api('/api/public/catalog').then((c) => {
+      $('#bizName').textContent = c.business.name || 'Gráfica';
+      $('#avatar').textContent = (c.business.name || 'G')[0].toUpperCase();
+    });
+    poll();
+    setInterval(poll, 1500);
+  </script>
+</body>
+</html>

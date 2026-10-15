@@ -1,0 +1,16 @@
+{
+  "name": "atendimento-grafica",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Atendimento automático por WhatsApp, orçamento online e ordens de serviço para gráfica rápida",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test test/fluxo.test.js"
+  },
+  "engines": { "node": ">=22.13" },
+  "dependencies": {
+    "pdfkit": "^0.15.0"
+  }
+}

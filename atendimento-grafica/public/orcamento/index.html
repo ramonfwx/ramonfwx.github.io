@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Orçamento online</title>
+  <link rel="stylesheet" href="/shared.css">
+  <link rel="stylesheet" href="/orcamento/orcamento.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow" id="biz">&nbsp;</p>
+      <h1>Monte seu orçamento</h1>
+      <p id="hello" class="muted">Escolha o que precisa, informe as medidas e veja o valor na hora. Ao final sai o pedido em PDF.</p>
+    </div>
+  </header>
+
+  <main class="wrap" id="main">
+    <p class="muted" id="loading">Carregando…</p>
+
+    <form id="form" hidden novalidate>
+      <section class="card step" aria-labelledby="s1">
+        <h2 id="s1"><span class="n">1</span> O que você precisa?</h2>
+        <div class="cats" id="cats" role="group" aria-label="Categorias"></div>
+        <div class="pgrid" id="pgrid"></div>
+        <div id="items" class="stack" aria-live="polite"></div>
+        <p class="small muted" id="itemsHint">Toque em um produto para adicionar ao orçamento. Pode adicionar vários.</p>
+      </section>
+
+      <section class="card step" aria-labelledby="s2">
+        <h2 id="s2"><span class="n">2</span> Seus dados</h2>
+        <div class="grid2">
+          <label class="field"><span>Nome *</span><input type="text" id="name" autocomplete="name" required></label>
+          <label class="field"><span>WhatsApp com DDD *</span><input type="tel" id="phone" autocomplete="tel" inputmode="tel" placeholder="(11) 99999-0000" required></label>
+          <label class="field"><span>E-mail</span><input type="email" id="email" autocomplete="email"></label>
+          <label class="field"><span>CPF ou CNPJ (se quiser nota)</span><input type="text" id="doc" inputmode="numeric"></label>
+        </div>
+      </section>
+
+      <section class="card step" aria-labelledby="s3">
+        <h2 id="s3"><span class="n">3</span> Entrega e pagamento</h2>
+        <fieldset class="choices" id="deliv"><legend class="small muted">Como quer receber?</legend>
+          <label class="choice"><input type="radio" name="delivery" value="retirada" checked> <span>🏬 Retirar na gráfica</span></label>
+          <label class="choice"><input type="radio" name="delivery" value="entrega"> <span>🚚 Quero entrega</span></label>
+        </fieldset>
+        <label class="field" id="addrWrap" hidden><span>Endereço de entrega *</span><input type="text" id="addr" autocomplete="street-address"></label>
+        <fieldset class="choices" id="pay"><legend class="small muted">Forma de pagamento *</legend></fieldset>
+        <label class="field"><span>Link da sua arte (Drive, WeTransfer…) — opcional</span><input type="url" id="art" placeholder="https://"></label>
+        <label class="field"><span>Observações — opcional</span><textarea id="notes" placeholder="Cores, prazo, instalação, dúvidas…"></textarea></label>
+        <p class="small muted">Ainda não tem a arte? Sem problema, a gente combina a criação pelo WhatsApp depois do pedido.</p>
+      </section>
+
+      <section class="card step" aria-labelledby="s4">
+        <h2 id="s4"><span class="n">4</span> Confirmar</h2>
+        <div id="summary"></div>
+        <div class="sigbox">
+          <div class="row"><strong class="small">Sua assinatura (opcional)</strong><span class="grow"></span><button type="button" class="btn sm ghost" id="sigClear">Limpar</button></div>
+          <canvas id="sig" aria-label="Campo para assinar com o dedo ou mouse"></canvas>
+        </div>
+        <label class="row terms"><input type="checkbox" id="accept"> <span>Li e aceito as <a href="#terms" id="termsLink">condições do pedido</a>.</span></label>
+        <div id="termsText" class="small muted" hidden></div>
+        <p class="err" id="err" role="alert"></p>
+      </section>
+
+      <div class="bar">
+        <div class="wrap row">
+          <div class="grow"><div class="small muted">Total</div><strong id="barTotal" class="big">R$ 0,00</strong></div>
+          <button class="btn primary big" type="submit" id="submit">Enviar pedido</button>
+        </div>
+      </div>
+    </form>
+
+    <section class="card done" id="done" hidden>
+      <div class="check" aria-hidden="true">✓</div>
+      <h2>Pedido <span id="dNum"></span> enviado!</h2>
+      <p class="muted">Você recebeu a confirmação no WhatsApp. A gráfica vai conferir tudo e falar com você.</p>
+      <dl id="dInfo"></dl>
+      <div class="row wrap" style="justify-content:center;margin-top:16px">
+        <a class="btn primary" id="dPdf" target="_blank" rel="noopener">📄 Baixar pedido em PDF</a>
+        <button class="btn" id="dNew" type="button">Fazer outro orçamento</button>
+      </div>
+    </section>
+  </main>
+
+  <script type="module" src="/orcamento/app.js"></script>
+</body>
+</html>
