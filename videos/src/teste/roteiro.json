@@ -1,0 +1,42 @@
+{
+  "cenas": [
+    {
+      "id": "capa",
+      "visual": "capa",
+      "etiqueta": "TESTE 01",
+      "linhas": ["Do 0 ao", "*motion*"],
+      "sub": "com o Claude",
+      "fala": "Vamos testar. Do zero ao motion, com o Claude."
+    },
+    {
+      "id": "ideia",
+      "visual": "caixa",
+      "etiqueta": "PASSO 1",
+      "linhas": ["Você escreve", "a *ideia*"],
+      "digitando": "Crie um vídeo animado, narrado, sobre o meu portfólio.",
+      "fala": "Primeiro, você escreve a ideia. Do jeito que vier na cabeça."
+    },
+    {
+      "id": "codigo",
+      "visual": "codigo",
+      "etiqueta": "PASSO 2",
+      "linhas": ["O Claude", "escreve o *código*"],
+      "fala": "Depois, o Claude escreve o código de cada cena, de cada movimento."
+    },
+    {
+      "id": "video",
+      "visual": "linha",
+      "etiqueta": "PASSO 3",
+      "linhas": ["O Remotion", "vira *vídeo*"],
+      "fala": "O Remotion transforma esse código em vídeo de verdade, quadro por quadro."
+    },
+    {
+      "id": "final",
+      "visual": "final",
+      "etiqueta": "PRONTO",
+      "linhas": ["Narrado,", "animado e", "*no ponto*"],
+      "sub": "formato 9:16 para Reels",
+      "fala": "Narrado, animado e pronto para postar."
+    }
+  ]
+}

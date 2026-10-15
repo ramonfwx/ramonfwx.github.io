@@ -8,3 +8,7 @@ assets/drone/*.jpg
 
 # Old backup
 files.zip
+
+# Remotion
+videos/node_modules/
+videos/out/

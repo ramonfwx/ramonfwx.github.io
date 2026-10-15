@@ -1,0 +1,52 @@
+{
+  "cenas": [
+    {
+      "id": "intro",
+      "etiqueta": "PORTFÓLIO",
+      "titulo": "Ramon Lima",
+      "legenda": "Quatro habilidades, uma só constelação.",
+      "fala": "Olá! Eu sou o Ramon Lima. Quatro habilidades, uma só constelação.",
+      "cor": "#7c5cff"
+    },
+    {
+      "id": "design",
+      "etiqueta": "01 · DESIGN",
+      "titulo": "Design gráfico",
+      "legenda": "Identidade visual, flyers e artes para redes sociais.",
+      "fala": "No design gráfico, eu crio identidade visual, flyers e artes para redes sociais.",
+      "cor": "#ff5c8a"
+    },
+    {
+      "id": "video",
+      "etiqueta": "02 · VÍDEO",
+      "titulo": "Edição de vídeo",
+      "legenda": "Ritmo, cor e movimento contando a história.",
+      "fala": "Na edição de vídeo, ritmo, cor e movimento se juntam para contar a história.",
+      "cor": "#ffb347"
+    },
+    {
+      "id": "drone",
+      "etiqueta": "03 · DRONE",
+      "titulo": "Pilotagem de drone",
+      "legenda": "Imagens aéreas direto do Pará.",
+      "fala": "Com o drone, eu capturo imagens aéreas direto do Pará.",
+      "cor": "#3ddcff"
+    },
+    {
+      "id": "ia",
+      "etiqueta": "04 · PROGRAMAÇÃO COM IA",
+      "titulo": "Programação com IA",
+      "legenda": "Ideias viram sites, ferramentas e vídeos.",
+      "fala": "E com programação e inteligência artificial, ideias viram sites, ferramentas e vídeos.",
+      "cor": "#5cff9d"
+    },
+    {
+      "id": "contato",
+      "etiqueta": "CONTATO",
+      "titulo": "Vamos conversar?",
+      "legenda": "Acesse o portfólio e fale comigo.",
+      "fala": "Vamos conversar? Acesse o portfólio e fale comigo.",
+      "cor": "#7c5cff"
+    }
+  ]
+}
