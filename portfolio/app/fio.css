@@ -1,0 +1,65 @@
+:root {
+  --pad: clamp(20px, 3.2vw, 48px);
+}
+
+/* O fio visual (Trilha): régua fina e marcador azul, com andamentos diferentes. */
+.trilha-regua {
+  height: 6px;
+  background-image: repeating-linear-gradient(90deg, var(--color-borda) 0 1px, transparent 1px 16px);
+}
+.trilha-marca {
+  left: 0;
+  width: 1px;
+  height: 18px;
+  background: var(--color-destaque);
+  transform: translate(-50%, -50%);
+}
+.trilha-marca::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background: var(--color-destaque);
+  transform: translate(-50%, -50%);
+}
+.trilha-cursor {
+  left: 50%;
+}
+.trilha-respira {
+  animation: trilha-respira 7s ease-in-out infinite alternate;
+}
+.trilha-passos {
+  animation: trilha-passos 4.8s steps(14, end) infinite;
+}
+.trilha-curva {
+  animation: trilha-curva 5s cubic-bezier(0.7, 0, 0.3, 1) infinite alternate;
+}
+.trilha-reproduz {
+  height: 30px;
+  animation: trilha-reproduz 6s linear infinite;
+}
+@keyframes trilha-respira {
+  from { left: 6%; }
+  to { left: 94%; }
+}
+@keyframes trilha-passos {
+  from { left: 0%; }
+  to { left: 100%; }
+}
+@keyframes trilha-curva {
+  from { left: 4%; }
+  to { left: 96%; }
+}
+@keyframes trilha-reproduz {
+  from { left: 0%; }
+  to { left: 100%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .trilha-marca {
+    animation: none !important;
+    left: 40%;
+  }
+}

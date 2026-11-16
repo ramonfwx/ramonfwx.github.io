@@ -1,0 +1,405 @@
+{
+    "amazon-vision":  [
+                          {
+                              "src":  "/images/projetos/amazon-vision/01.jpg",
+                              "w":  1600,
+                              "h":  900
+                          },
+                          {
+                              "src":  "/images/projetos/amazon-vision/02.jpg",
+                              "w":  1254,
+                              "h":  1254
+                          },
+                          {
+                              "src":  "/images/projetos/amazon-vision/03.jpg",
+                              "w":  1122,
+                              "h":  1402
+                          },
+                          {
+                              "src":  "/images/projetos/amazon-vision/04.jpg",
+                              "w":  1536,
+                              "h":  1024
+                          },
+                          {
+                              "src":  "/images/projetos/amazon-vision/05.jpg",
+                              "w":  1254,
+                              "h":  1254
+                          },
+                          {
+                              "src":  "/images/projetos/amazon-vision/06.jpg",
+                              "w":  1122,
+                              "h":  1402
+                          },
+                          {
+                              "src":  "/images/projetos/amazon-vision/07.jpg",
+                              "w":  1122,
+                              "h":  1402
+                          },
+                          {
+                              "src":  "/images/projetos/amazon-vision/08.jpg",
+                              "w":  1122,
+                              "h":  1402
+                          },
+                          {
+                              "src":  "/images/projetos/amazon-vision/09.jpg",
+                              "w":  1122,
+                              "h":  1402
+                          },
+                          {
+                              "src":  "/images/projetos/amazon-vision/10.jpg",
+                              "w":  1122,
+                              "h":  1402
+                          }
+                      ],
+    "fisioflow":  [
+                      {
+                          "src":  "/images/projetos/fisioflow/01.jpg",
+                          "w":  1440,
+                          "h":  900
+                      }
+                  ],
+    "linksouw":  [
+                     {
+                         "src":  "/images/projetos/linksouw/01.jpg",
+                         "w":  1440,
+                         "h":  900
+                     }
+                 ],
+    "peakiflow":  [
+                      {
+                          "src":  "/images/projetos/peakiflow/01.jpg",
+                          "w":  1440,
+                          "h":  900
+                      }
+                  ],
+    "wicity-site":  [
+                        {
+                            "src":  "/images/projetos/wicity-site/01.jpg",
+                            "w":  1440,
+                            "h":  900
+                        }
+                    ],
+    "jsouzanet":  [
+                      {
+                          "src":  "/images/projetos/jsouzanet/01.jpg",
+                          "w":  1440,
+                          "h":  900
+                      }
+                  ],
+    "gerador-de-orcamento":  [
+                                 {
+                                     "src":  "/images/projetos/gerador-de-orcamento/01.jpg",
+                                     "w":  1440,
+                                     "h":  900
+                                 }
+                             ],
+    "reels":  [
+                  {
+                      "src":  "/images/projetos/reels/01.jpg",
+                      "w":  360,
+                      "h":  640
+                  }
+              ],
+    "drone":  [
+                  {
+                      "src":  "/images/projetos/drone/01.jpg",
+                      "w":  1800,
+                      "h":  1012
+                  },
+                  {
+                      "src":  "/images/projetos/drone/02.jpg",
+                      "w":  1800,
+                      "h":  1012
+                  },
+                  {
+                      "src":  "/images/projetos/drone/03.jpg",
+                      "w":  1800,
+                      "h":  1012
+                  },
+                  {
+                      "src":  "/images/projetos/drone/04.jpg",
+                      "w":  1800,
+                      "h":  1012
+                  },
+                  {
+                      "src":  "/images/projetos/drone/05.jpg",
+                      "w":  1800,
+                      "h":  1012
+                  },
+                  {
+                      "src":  "/images/projetos/drone/06.jpg",
+                      "w":  1800,
+                      "h":  1012
+                  },
+                  {
+                      "src":  "/images/projetos/drone/07.jpg",
+                      "w":  1800,
+                      "h":  1012
+                  },
+                  {
+                      "src":  "/images/projetos/drone/08.jpg",
+                      "w":  1800,
+                      "h":  1012
+                  },
+                  {
+                      "src":  "/images/projetos/drone/09.jpg",
+                      "w":  1800,
+                      "h":  1012
+                  },
+                  {
+                      "src":  "/images/projetos/drone/10.jpg",
+                      "w":  1800,
+                      "h":  1012
+                  },
+                  {
+                      "src":  "/images/projetos/drone/11.jpg",
+                      "w":  1800,
+                      "h":  1012
+                  },
+                  {
+                      "src":  "/images/projetos/drone/12.jpg",
+                      "w":  1800,
+                      "h":  1012
+                  },
+                  {
+                      "src":  "/images/projetos/drone/13.jpg",
+                      "w":  1800,
+                      "h":  1012
+                  },
+                  {
+                      "src":  "/images/projetos/drone/14.jpg",
+                      "w":  1800,
+                      "h":  1012
+                  },
+                  {
+                      "src":  "/images/projetos/drone/15.jpg",
+                      "w":  1800,
+                      "h":  1012
+                  },
+                  {
+                      "src":  "/images/projetos/drone/16.jpg",
+                      "w":  1800,
+                      "h":  1012
+                  }
+              ],
+    "wicity-identidade":  [
+                              {
+                                  "src":  "/images/projetos/wicity-identidade/01.jpg",
+                                  "w":  1448,
+                                  "h":  1086
+                              },
+                              {
+                                  "src":  "/images/projetos/wicity-identidade/02.jpg",
+                                  "w":  1448,
+                                  "h":  1086
+                              },
+                              {
+                                  "src":  "/images/projetos/wicity-identidade/03.jpg",
+                                  "w":  1448,
+                                  "h":  1086
+                              }
+                          ],
+    "armazem-dos-tubos":  [
+                              {
+                                  "src":  "/images/projetos/armazem-dos-tubos/01.jpg",
+                                  "w":  1600,
+                                  "h":  1067
+                              },
+                              {
+                                  "src":  "/images/projetos/armazem-dos-tubos/02.jpg",
+                                  "w":  1600,
+                                  "h":  1067
+                              }
+                          ],
+    "acai-kidelicia":  [
+                           {
+                               "src":  "/images/projetos/acai-kidelicia/01.jpg",
+                               "w":  1600,
+                               "h":  1067
+                           },
+                           {
+                               "src":  "/images/projetos/acai-kidelicia/02.jpg",
+                               "w":  1600,
+                               "h":  1067
+                           },
+                           {
+                               "src":  "/images/projetos/acai-kidelicia/03.jpg",
+                               "w":  1224,
+                               "h":  1600
+                           },
+                           {
+                               "src":  "/images/projetos/acai-kidelicia/04.jpg",
+                               "w":  1224,
+                               "h":  1600
+                           }
+                       ],
+    "fazenda-renascer":  [
+                             {
+                                 "src":  "/images/projetos/fazenda-renascer/01.jpg",
+                                 "w":  1600,
+                                 "h":  1067
+                             },
+                             {
+                                 "src":  "/images/projetos/fazenda-renascer/02.jpg",
+                                 "w":  1600,
+                                 "h":  1067
+                             },
+                             {
+                                 "src":  "/images/projetos/fazenda-renascer/03.jpg",
+                                 "w":  1600,
+                                 "h":  1586
+                             }
+                         ],
+    "folder-jadson":  [
+                          {
+                              "src":  "/images/projetos/folder-jadson/01.jpg",
+                              "w":  1600,
+                              "h":  1132
+                          }
+                      ],
+    "jhenifer-kayte":  [
+                           {
+                               "src":  "/images/projetos/jhenifer-kayte/01.jpg",
+                               "w":  1600,
+                               "h":  1280
+                           }
+                       ],
+    "sf-closet":  [
+                      {
+                          "src":  "/images/projetos/sf-closet/01.jpg",
+                          "w":  1600,
+                          "h":  1067
+                      },
+                      {
+                          "src":  "/images/projetos/sf-closet/02.jpg",
+                          "w":  1600,
+                          "h":  1067
+                      },
+                      {
+                          "src":  "/images/projetos/sf-closet/03.jpg",
+                          "w":  1600,
+                          "h":  1067
+                      },
+                      {
+                          "src":  "/images/projetos/sf-closet/04.jpg",
+                          "w":  1600,
+                          "h":  1067
+                      },
+                      {
+                          "src":  "/images/projetos/sf-closet/05.jpg",
+                          "w":  1600,
+                          "h":  1600
+                      }
+                  ],
+    "transportes-pe-no-chao":  [
+                                   {
+                                       "src":  "/images/projetos/transportes-pe-no-chao/01.jpg",
+                                       "w":  1224,
+                                       "h":  1600
+                                   },
+                                   {
+                                       "src":  "/images/projetos/transportes-pe-no-chao/02.jpg",
+                                       "w":  1224,
+                                       "h":  1600
+                                   },
+                                   {
+                                       "src":  "/images/projetos/transportes-pe-no-chao/03.jpg",
+                                       "w":  1224,
+                                       "h":  1600
+                                   },
+                                   {
+                                       "src":  "/images/projetos/transportes-pe-no-chao/04.jpg",
+                                       "w":  1224,
+                                       "h":  1600
+                                   }
+                               ],
+    "camping-maloca-e-rodas":  [
+                                   {
+                                       "src":  "/images/projetos/camping-maloca-e-rodas/01.jpg",
+                                       "w":  1600,
+                                       "h":  1131
+                                   },
+                                   {
+                                       "src":  "/images/projetos/camping-maloca-e-rodas/02.jpg",
+                                       "w":  1600,
+                                       "h":  1131
+                                   },
+                                   {
+                                       "src":  "/images/projetos/camping-maloca-e-rodas/03.jpg",
+                                       "w":  1600,
+                                       "h":  1131
+                                   },
+                                   {
+                                       "src":  "/images/projetos/camping-maloca-e-rodas/04.jpg",
+                                       "w":  1600,
+                                       "h":  1131
+                                   },
+                                   {
+                                       "src":  "/images/projetos/camping-maloca-e-rodas/05.jpg",
+                                       "w":  1600,
+                                       "h":  1131
+                                   },
+                                   {
+                                       "src":  "/images/projetos/camping-maloca-e-rodas/06.jpg",
+                                       "w":  1600,
+                                       "h":  1131
+                                   },
+                                   {
+                                       "src":  "/images/projetos/camping-maloca-e-rodas/07.jpg",
+                                       "w":  1600,
+                                       "h":  1131
+                                   },
+                                   {
+                                       "src":  "/images/projetos/camping-maloca-e-rodas/08.jpg",
+                                       "w":  1600,
+                                       "h":  1131
+                                   },
+                                   {
+                                       "src":  "/images/projetos/camping-maloca-e-rodas/09.jpg",
+                                       "w":  1600,
+                                       "h":  1131
+                                   },
+                                   {
+                                       "src":  "/images/projetos/camping-maloca-e-rodas/10.jpg",
+                                       "w":  1600,
+                                       "h":  1131
+                                   },
+                                   {
+                                       "src":  "/images/projetos/camping-maloca-e-rodas/11.jpg",
+                                       "w":  1600,
+                                       "h":  1131
+                                   },
+                                   {
+                                       "src":  "/images/projetos/camping-maloca-e-rodas/12.jpg",
+                                       "w":  1600,
+                                       "h":  1131
+                                   }
+                               ],
+    "wicity-soft":  [
+                        {
+                            "src":  "/images/projetos/wicity-soft/01.jpg",
+                            "w":  1024,
+                            "h":  1024
+                        },
+                        {
+                            "src":  "/images/projetos/wicity-soft/02.jpg",
+                            "w":  1400,
+                            "h":  315
+                        },
+                        {
+                            "src":  "/images/projetos/wicity-soft/03.jpg",
+                            "w":  1400,
+                            "h":  315
+                        },
+                        {
+                            "src":  "/images/projetos/wicity-soft/04.jpg",
+                            "w":  1080,
+                            "h":  1080
+                        },
+                        {
+                            "src":  "/images/projetos/wicity-soft/05.jpg",
+                            "w":  1080,
+                            "h":  1080
+                        }
+                    ]
+}
