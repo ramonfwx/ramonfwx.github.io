@@ -8,11 +8,11 @@ import { projetos, type Projeto } from "@/data/projetos";
 type ComCapa = Projeto & { capa: NonNullable<Projeto["capa"]> };
 
 // Seleção inicial de trabalhos, na ordem em que aparecem. Para trocar, mude esta lista.
-// A ordem alterna formatos e áreas de propósito: site, identidade, reel, site, identidade, foto.
+// A ordem alterna formatos e áreas de propósito: site, identidade, vídeo, site, identidade, foto.
 const selecao = [
   "fisioflow",
   "amazon-vision",
-  "reels-para-instagram",
+  "video-ellie-e-joel",
   "linksouw",
   "camping-maloca-e-rodas",
   "drone",

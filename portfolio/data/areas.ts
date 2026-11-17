@@ -58,13 +58,13 @@ export const areas: Area[] = [
     id: "video",
     numero: "04",
     titulo: "Edição de vídeo",
-    frase: "Reels, filmagem com drone e plugins para acelerar a edição no Premiere Pro.",
+    frase: "Edição de vídeo, filmagem com drone e plugins para acelerar a edição no Premiere Pro.",
     fatos: [
       { rotulo: "Edição", valor: "Adobe Premiere Pro" },
       { rotulo: "Captação", valor: "Drone DJI" },
-      { rotulo: "Formato", valor: "Reels e vídeos para redes" },
+      { rotulo: "Publicação", valor: "Vídeos no YouTube" },
     ],
-    link: { rotulo: "Ver os reels", href: "/projetos/reels-para-instagram/" },
+    link: { rotulo: "Ver o vídeo", href: "/projetos/video-ellie-e-joel/" },
     trilha: "reproduz",
   },
 ];

@@ -53,6 +53,8 @@ export default async function PaginaProjeto({ params }: Props) {
   const principal = projeto.capa ?? imagens[0];
   const restantes = imagens.filter((i) => i.src !== principal?.src);
   const proximo = proximoProjeto(slug);
+  // Se a capa é a miniatura de um vídeo, ela já aparece no card do vídeo: não repete no topo.
+  const capaEhVideo = !!principal && videos.some((v) => v.capa === principal.src);
 
   return (
     <article className="coluna pb-28 pt-32 md:pt-40">
@@ -73,6 +75,7 @@ export default async function PaginaProjeto({ params }: Props) {
         <p className="mt-6 max-w-2xl text-lg text-texto-2">{projeto.resumo}</p>
       </Reveal>
 
+      {!capaEhVideo && (
       <Reveal delay={0.1} className="mt-12">
         {principal ? (
           <div className="cartao relative mx-auto aspect-[16/9] max-h-[64svh] w-full max-w-[1000px] bg-fundo-2">
@@ -91,6 +94,7 @@ export default async function PaginaProjeto({ params }: Props) {
           </div>
         )}
       </Reveal>
+      )}
 
       <div className="mt-16">
         {projeto.contexto && <Secao rotulo="Contexto e objetivo"><p className="text-lg">{projeto.contexto}</p></Secao>}

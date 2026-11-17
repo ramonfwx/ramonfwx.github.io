@@ -11,18 +11,18 @@ import { ponteiroFino } from "@/lib/scroll";
 import Linhas from "./Linhas";
 
 type ComCapa = Projeto & { capa: NonNullable<Projeto["capa"]> };
-type Formato = "site" | "identidade" | "reel" | "foto";
+type Formato = "site" | "identidade" | "video" | "foto";
 
 // Cada formato tem a sua moldura, mas todas partilham a mesma altura de referência,
 // o mesmo alinhamento e o mesmo ritmo: mídia de um lado, legenda do outro, alternando.
-const razao: Record<Formato, number> = { site: 1.6, identidade: 1.33, reel: 0.5625, foto: 1.5 };
+const razao: Record<Formato, number> = { site: 1.6, identidade: 1.33, video: 1.7, foto: 1.5 };
 
 const formatoDe: Record<string, Formato> = {
   fisioflow: "site",
   linksouw: "site",
   "amazon-vision": "identidade",
   "camping-maloca-e-rodas": "identidade",
-  "reels-para-instagram": "reel",
+  "video-ellie-e-joel": "video",
   drone: "foto",
 };
 
@@ -88,7 +88,18 @@ function Moldura({ p, formato }: { p: ComCapa; formato: Formato }) {
       <div data-img className="absolute -inset-[4%]">
         {imagem}
       </div>
-      {formato === "reel" && <span className="rotulo absolute bottom-3 left-3">Reel · 9:16</span>}
+      {formato === "video" && (
+        <>
+          <span className="absolute inset-0 grid place-items-center bg-black/20">
+            <span className="grid size-14 place-items-center rounded-full bg-texto text-fundo">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true" className="ml-0.5">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+          </span>
+          <span className="rotulo absolute bottom-3 left-3">Vídeo · YouTube</span>
+        </>
+      )}
       {brilho}
     </div>
   );

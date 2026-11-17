@@ -14,6 +14,10 @@ function idYoutube(url: string) {
   const m = url.match(/(?:youtu\.be\/|v=|embed\/|shorts\/)([\w-]{11})/);
   return m?.[1] ?? "";
 }
+function inicioYoutube(url: string) {
+  const m = url.match(/[?&]t=(\d+)/);
+  return m ? Number(m[1]) : 0;
+}
 function idVimeo(url: string) {
   return url.match(/vimeo\.com\/(?:video\/)?(\d+)/)?.[1] ?? "";
 }
@@ -36,7 +40,7 @@ function Reproducao({ video }: { video: Video }) {
     return (
       <iframe
         title={video.titulo}
-        src={`https://www.youtube-nocookie.com/embed/${idYoutube(video.url)}?rel=0`}
+        src={`https://www.youtube-nocookie.com/embed/${idYoutube(video.url)}?rel=0${inicioYoutube(video.url) ? `&start=${inicioYoutube(video.url)}` : ""}`}
         allow="encrypted-media; picture-in-picture; fullscreen"
         allowFullScreen
         loading="lazy"
@@ -89,6 +93,30 @@ export default function VideoGaleria({ videos }: { videos: Video[] }) {
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {videos.map((v, i) => (
           <li key={v.url}>
+            {v.capa ? (
+              <button
+                type="button"
+                onClick={() => setAberto(i)}
+                aria-label={`Assistir: ${v.titulo}`}
+                className="group block w-full text-left"
+              >
+                <span className="cartao relative block aspect-video bg-fundo-2 group-hover:-translate-y-1">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={v.capa}
+                    alt=""
+                    loading="lazy"
+                    className="absolute inset-0 size-full object-cover transition-transform duration-700 ease-suave group-hover:scale-[1.04]"
+                  />
+                  <span className="absolute inset-0 grid place-items-center bg-black/25 transition-colors duration-500 group-hover:bg-black/10">
+                    <span className="grid size-14 place-items-center rounded-full bg-texto text-fundo transition-transform duration-500 ease-suave group-hover:scale-110">
+                      <Play size={20} aria-hidden="true" className="ml-0.5" />
+                    </span>
+                  </span>
+                </span>
+                <span className="mt-3 block text-[15px]">{v.titulo}</span>
+              </button>
+            ) : (
             <button
               type="button"
               onClick={() => setAberto(i)}
@@ -102,6 +130,7 @@ export default function VideoGaleria({ videos }: { videos: Video[] }) {
                 <span className="block text-sm text-texto-2">Assistir</span>
               </span>
             </button>
+            )}
           </li>
         ))}
       </ul>

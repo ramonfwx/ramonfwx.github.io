@@ -26,7 +26,7 @@ export const sobre = {
     },
     {
       titulo: "Audiovisual",
-      texto: "Reels e vídeos para redes sociais, filmagem com drone e plugins para acelerar a edição no Premiere Pro.",
+      texto: "Vídeos para o meu canal no YouTube, filmagem com drone e plugins para acelerar a edição no Premiere Pro.",
     },
   ],
 

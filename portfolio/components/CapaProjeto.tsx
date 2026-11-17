@@ -2,7 +2,7 @@ import Image from "next/image";
 import type { Imagem } from "@/data/projetos";
 
 // Moldura única para as capas, para que projetos de segmentos diferentes
-// tenham a mesma apresentação. Imagens retrato (como quadros de reels) aparecem
+// tenham a mesma apresentação. Imagens retrato (como quadros de vídeos verticais) aparecem
 // inteiras sobre um fundo desfocado, em vez de serem cortadas ou esticadas.
 // A moldura toma o tamanho do pai: dê a ela uma proporção (ex.: aspect-[16/10]).
 export default function CapaProjeto({

@@ -59,15 +59,6 @@ const imagens = (slug: string, alt: string): Imagem[] =>
 const capaDe = (slug: string, alt: string): Imagem | undefined =>
   imagens(slug, alt)[0];
 
-const reels = [
-  "https://www.instagram.com/p/DaFvMtep4Wo/",
-  "https://www.instagram.com/p/DYw0YtKJ4Dw/",
-  "https://www.instagram.com/p/DYW9gvhxHaJ/",
-  "https://www.instagram.com/p/DW831M6iTuS/",
-  "https://www.instagram.com/p/DbV9w3PIxYl/",
-  "https://www.instagram.com/reel/DIG4Gd5A2hp/",
-];
-
 export const projetos: Projeto[] = [
   // ----------------------------- Em destaque -----------------------------
   {
@@ -110,19 +101,26 @@ export const projetos: Projeto[] = [
     galeria: imagens("fisioflow", "Tela do FisioFlow"),
   },
   {
-    slug: "reels-para-instagram",
-    titulo: "Reels para Instagram",
+    slug: "video-ellie-e-joel",
+    titulo: "Ellie SEMPRE soube que Joel mentiu",
     categorias: ["video"],
     destaque: true,
-    resumo: "Vídeos verticais editados para redes sociais.",
-    capa: capaDe("reels", "Quadro de um dos reels editados"),
+    resumo: "Vídeo editado para o meu canal no YouTube.",
+    capa: capaDe("video-canal", "Miniatura do vídeo no canal do YouTube"),
     participacao: "Edição de vídeo.",
-    galeria: reels.map((url, n) => ({
-      tipo: "video" as const,
-      provedor: "instagram" as const,
-      url,
-      titulo: `Reel ${n + 1}`,
-    })),
+    links: [
+      { rotulo: "Assistir no YouTube", url: "https://www.youtube.com/watch?v=IqP0L6Vq1pg&t=153s" },
+      { rotulo: "Ver o canal", url: "https://www.youtube.com/@Sairowh" },
+    ],
+    galeria: [
+      {
+        tipo: "video" as const,
+        provedor: "youtube" as const,
+        url: "https://www.youtube.com/watch?v=IqP0L6Vq1pg&t=153s",
+        titulo: "Ellie SEMPRE soube que Joel mentiu (não é bait)",
+        capa: "/images/projetos/video-canal/01.jpg",
+      },
+    ],
   },
   {
     slug: "linksouw",
