@@ -74,15 +74,12 @@ export default function Abertura() {
       className="relative h-svh min-h-[640px] overflow-hidden px-[var(--pad)]"
     >
       {/* No espaço livre ao lado do nome: anéis orbitais, que inclinam com o cursor. */}
-      <div data-extra className="absolute left-[var(--pad)] right-[var(--pad)] top-20 h-[19%] md:left-[56%] md:top-24 md:h-[calc(62%-7rem)]">
+      <div data-extra className="absolute left-[var(--pad)] right-[var(--pad)] top-20 h-[27%] md:left-[56%] md:top-24 md:h-[calc(62%-7rem)]">
         <Aneis className="h-full w-full" />
       </div>
 
       {/* Acima do fio: o nome. */}
       <div className="absolute inset-x-[var(--pad)] top-[48%] md:top-[62%] -translate-y-full pb-8 md:pb-10">
-        <p data-extra className="rotulo mb-5">
-          Fisioterapeuta · Programador · Designer · Editor de vídeo
-        </p>
         <h1
           id="titulo-abertura"
           aria-label="Ramon Lima"
