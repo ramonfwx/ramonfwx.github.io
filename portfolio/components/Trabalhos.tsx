@@ -219,7 +219,13 @@ export default function Trabalhos({ projetos, total }: { projetos: ComCapa[]; to
         Trabalhos selecionados
       </h2>
 
-      <div>
+      <p className="rotulo flex justify-between px-[var(--pad)] pb-3 pt-10 lg:hidden">
+        <span className="!text-texto">03 — Trabalhos</span>
+        <span>Deslize →</span>
+      </p>
+
+      {/* Celular: carrossel horizontal com encaixe. Desktop: cenas empilhadas em tela cheia. */}
+      <div className="flex snap-x snap-mandatory gap-3 overflow-x-auto scroll-pl-[var(--pad)] px-[var(--pad)] pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden lg:block lg:snap-none lg:overflow-visible lg:p-0">
         {projetos.map((p, i) => {
           const formato = formatoDe[p.slug] ?? "foto";
           const direita = i % 2 === 1;
@@ -227,11 +233,11 @@ export default function Trabalhos({ projetos, total }: { projetos: ComCapa[]; to
             <article
               key={p.slug}
               data-cena
-              className="relative border-t border-borda bg-fundo motion-safe:lg:sticky motion-safe:lg:top-0 motion-safe:lg:h-svh"
+              className="relative w-[80vw] max-w-[340px] shrink-0 snap-start rounded-2xl border border-borda bg-fundo-2/50 lg:w-auto lg:max-w-none lg:rounded-none lg:border-x-0 lg:border-b-0 lg:bg-fundo motion-safe:lg:sticky motion-safe:lg:top-0 motion-safe:lg:h-svh"
             >
               <div
                 data-corpo
-                className="[--h:100vw] lg:[--h:min(58svh,34vw)] flex h-full flex-col justify-center px-[var(--pad)] py-12 will-change-transform motion-safe:lg:pt-24"
+                className="[--h:60vw] lg:[--h:min(58svh,34vw)] flex h-full flex-col justify-start p-3 will-change-transform lg:justify-center lg:px-[var(--pad)] lg:py-12 motion-safe:lg:pt-24"
               >
                 <div className="absolute inset-x-[var(--pad)] top-24 hidden items-center justify-between motion-safe:lg:flex">
                   <span className="rotulo !text-texto">03 — Trabalhos</span>
@@ -240,12 +246,12 @@ export default function Trabalhos({ projetos, total }: { projetos: ComCapa[]; to
                   </span>
                 </div>
 
-                <div className="mx-auto grid w-full max-w-[1680px] items-end gap-8 lg:grid-cols-12 lg:gap-6">
+                <div className="mx-auto grid w-full max-w-[1680px] items-end gap-4 lg:grid-cols-12 lg:gap-6">
                   <Link
                     href={`/projetos/${p.slug}/`}
                     data-alvo
                     aria-label={`${p.titulo}, ver projeto`}
-                    className={`block lg:col-span-7 ${direita ? "lg:col-start-6 lg:justify-self-end" : "lg:col-start-1 lg:justify-self-start"}`}
+                    className={`block max-lg:flex max-lg:h-[58vw] max-lg:items-center max-lg:justify-center lg:col-span-7 ${direita ? "lg:col-start-6 lg:justify-self-end" : "lg:col-start-1 lg:justify-self-start"}`}
                     style={{ width: "100%" }}
                   >
                     <Moldura p={p} formato={formato} />
@@ -260,17 +266,17 @@ export default function Trabalhos({ projetos, total }: { projetos: ComCapa[]; to
                     </p>
                     <Linhas
                       as="h3"
-                      className="mt-4 text-[clamp(2rem,3.8vw,3.9rem)] font-light leading-[1.02] tracking-[-0.045em]"
+                      className="mt-2 text-[clamp(1.6rem,3.8vw,3.9rem)] font-light leading-[1.02] tracking-[-0.045em]"
                     >
                       {p.titulo}
                     </Linhas>
-                    <p className="mt-5 max-w-[36ch] text-[15px] leading-relaxed text-texto-2">{p.resumo}</p>
+                    <p className="mt-3 max-w-[36ch] text-[14px] leading-relaxed text-texto-2 lg:mt-5 lg:text-[15px]">{p.resumo}</p>
                     {p.tecnologias && p.tecnologias.length > 0 && (
-                      <p className="rotulo mt-5">{p.tecnologias.slice(0, 4).join(" · ")}</p>
+                      <p className="rotulo mt-3 lg:mt-5">{p.tecnologias.slice(0, 4).join(" · ")}</p>
                     )}
                     <Link
                       href={`/projetos/${p.slug}/`}
-                      className="group mt-7 inline-flex items-center gap-2 border-b border-texto pb-0.5 text-[14px]"
+                      className="group mt-4 inline-flex items-center gap-2 border-b border-texto pb-0.5 text-[14px] lg:mt-7"
                     >
                       Ver projeto
                       <span aria-hidden="true" className="inline-block transition-transform duration-500 ease-suave group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
@@ -285,7 +291,7 @@ export default function Trabalhos({ projetos, total }: { projetos: ComCapa[]; to
         })}
       </div>
 
-      <div className="relative border-t border-borda bg-fundo px-[var(--pad)] py-14">
+      <div className="relative border-t border-borda bg-fundo px-[var(--pad)] py-8 lg:py-14">
         <div className="mx-auto flex max-w-[1680px] flex-wrap items-center justify-between gap-6">
           <p className="rotulo">
             {dois(projetos.length)} de {total} projetos

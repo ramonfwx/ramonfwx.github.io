@@ -56,7 +56,7 @@ export default function Sobre() {
         </h2>
 
         <div className="mt-10 grid gap-10 md:grid-cols-12 md:gap-8">
-          <div ref={moldura} className="relative aspect-[5/4] overflow-hidden bg-fundo-2 md:col-span-4 md:aspect-[4/5]">
+          <div ref={moldura} className="relative aspect-[16/9] overflow-hidden bg-fundo-2 md:col-span-4 md:aspect-[4/5]">
             <div ref={imagem} className="absolute inset-x-0 -inset-y-[7%]">
               {site.fotoSobre ? (
                 <Image
@@ -76,7 +76,7 @@ export default function Sobre() {
           </div>
 
           <div className="md:col-span-7 md:col-start-6">
-            <Linhas className="text-[clamp(1.5rem,2.7vw,2.6rem)] font-light leading-[1.18] tracking-[-0.03em]">
+            <Linhas className="text-[clamp(1.3rem,2.7vw,2.6rem)] font-light leading-[1.2] tracking-[-0.03em]">
               {sobre.introducao[0]}
             </Linhas>
             <p className="mt-8 max-w-[52ch] text-[17px] leading-relaxed text-texto-2">{sobre.introducao[1]}</p>

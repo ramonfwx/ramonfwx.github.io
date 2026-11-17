@@ -14,7 +14,7 @@ const navegacao = [
 export default function Footer() {
   return (
     <footer className="mt-auto border-t border-borda px-[clamp(20px,3.2vw,48px)]">
-      <div className="mx-auto flex max-w-[1680px] flex-wrap items-center justify-between gap-x-8 gap-y-4 py-8">
+      <div className="mx-auto flex max-w-[1680px] flex-wrap items-center justify-between gap-x-8 gap-y-3 py-5 md:py-8">
         <p className="rotulo">
           © {new Date().getFullYear()} {site.nomeCompleto}
         </p>
