@@ -11,10 +11,10 @@ export const site = {
   whatsapp: "", // só números com DDI e DDD, ex.: "5591999999999"
   redes: {
     github: "https://github.com/ramonfwx",
-    linksouw: "https://linksouw.com.br",
+    linksouw: "https://linksouw.com.br/ramonw", // sua página no Linksouw
     behance: "",
-    instagram: "",
-    linkedin: "",
+    instagram: "https://www.instagram.com/sairowh/",
+    linkedin: "https://www.linkedin.com/in/ramon-lima-1ab40730b/",
   },
 
   // Chave pública do Web3Forms (formulário de contato).
