@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { site } from "@/data/site";
+import { contatos } from "@/lib/contatos";
 import Contador from "./Contador";
+import IconeRede from "./IconeRede";
 
 const navegacao = [
   { href: "/", rotulo: "Início" },
@@ -27,6 +29,23 @@ export default function Footer() {
             ))}
           </ul>
         </nav>
+        {contatos.length > 0 && (
+          <ul className="flex items-center gap-5" aria-label="Redes e contatos">
+            {contatos.map((r) => (
+              <li key={r.rotulo}>
+                <a
+                  href={r.url}
+                  {...(r.externo ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  aria-label={r.rotulo}
+                  title={r.rotulo}
+                  className="block text-texto-2 transition-[color,transform] duration-300 ease-suave hover:-translate-y-0.5 hover:text-texto"
+                >
+                  <IconeRede rotulo={r.rotulo} tamanho={20} />
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
         <Contador />
       </div>
     </footer>

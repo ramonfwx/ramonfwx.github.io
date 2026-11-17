@@ -11,6 +11,7 @@ export const site = {
   whatsapp: "", // só números com DDI e DDD, ex.: "5591999999999"
   redes: {
     github: "https://github.com/ramonfwx",
+    linksouw: "https://linksouw.com.br",
     behance: "",
     instagram: "",
     linkedin: "",

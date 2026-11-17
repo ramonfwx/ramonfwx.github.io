@@ -9,6 +9,7 @@ import { site } from "@/data/site";
 import { sobre } from "@/data/sobre";
 import { contatos } from "@/lib/contatos";
 import { reduzMovimento } from "@/lib/scroll";
+import IconeRede from "./IconeRede";
 import Linhas from "./Linhas";
 import Magnetico from "./Magnetico";
 import PlaceholderImagem from "./PlaceholderImagem";
@@ -100,9 +101,12 @@ export default function Sobre() {
                   <a
                     href={c.url}
                     {...(c.externo ? { target: "_blank", rel: "noopener noreferrer" } : {})}
-                    className="group flex items-baseline justify-between gap-4 py-2 text-[15px] text-texto-2 transition-colors duration-300 hover:text-texto"
+                    className="group flex items-center justify-between gap-4 py-2 text-[15px] text-texto-2 transition-colors duration-300 hover:text-texto"
                   >
-                    {c.rotulo}
+                    <span className="flex items-center gap-3">
+                      <IconeRede rotulo={c.rotulo} />
+                      {c.rotulo}
+                    </span>
                     <span aria-hidden="true" className="inline-block text-xs transition-transform duration-500 ease-suave group-hover:-translate-y-0.5 group-hover:translate-x-0.5">
                       ↗
                     </span>

@@ -12,4 +12,5 @@ export const contatos: { rotulo: string; url: string; externo: boolean }[] = [
   { rotulo: "GitHub", url: site.redes.github, externo: true },
   { rotulo: "Behance", url: site.redes.behance, externo: true },
   { rotulo: "LinkedIn", url: site.redes.linkedin, externo: true },
+  { rotulo: "Linksouw", url: site.redes.linksouw, externo: true },
 ].filter((c) => c.url);

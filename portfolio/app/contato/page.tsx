@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import FormularioContato from "@/components/FormularioContato";
 import Reveal from "@/components/Reveal";
-import { site } from "@/data/site";
+import IconeRede from "@/components/IconeRede";
+import { contatos } from "@/lib/contatos";
 
 export const metadata: Metadata = {
   title: "Contato",
@@ -18,17 +19,22 @@ export default function Contato() {
         <p className="mt-6 max-w-sm text-lg text-texto-2">
           Tem uma ideia, projeto ou parceria em mente? Vamos trocar uma conversa.
         </p>
-        {site.redes.github && (
-          <p className="mt-8 text-[15px]">
-            <a
-              href={site.redes.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="border-b border-texto pb-0.5 transition-colors duration-200 hover:border-destaque hover:text-destaque"
-            >
-              GitHub ↗
-            </a>
-          </p>
+        {contatos.length > 0 && (
+          <ul className="mt-8 space-y-3 text-[15px]">
+            {contatos.map((c) => (
+              <li key={c.rotulo}>
+                <a
+                  href={c.url}
+                  {...(c.externo ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                  className="group inline-flex items-center gap-3 text-texto-2 transition-colors duration-300 hover:text-texto"
+                >
+                  <IconeRede rotulo={c.rotulo} />
+                  {c.rotulo}
+                  <span aria-hidden="true" className="text-xs">↗</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         )}
       </Reveal>
 
