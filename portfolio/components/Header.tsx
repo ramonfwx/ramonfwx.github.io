@@ -21,12 +21,23 @@ export default function Header() {
   // O menu fica ligado à página em que foi aberto: ao navegar, ele se fecha sozinho.
   const [abertoEm, setAbertoEm] = useState<string | null>(null);
   const aberto = abertoEm === caminho;
-  const [fundo, setFundo] = useState(false);
+  // A barra some ao rolar para baixo e volta ao rolar para cima.
+  const [visivel, setVisivel] = useState(true);
 
   useEffect(() => {
-    const aoRolar = () => setFundo(window.scrollY > 32);
+    let ultimo = window.scrollY;
+    const aoRolar = () => {
+      const y = window.scrollY;
+      if (y < 80) {
+        setVisivel(true);
+      } else if (Math.abs(y - ultimo) >= 6) {
+        setVisivel(y < ultimo);
+      } else {
+        return;
+      }
+      ultimo = y;
+    };
     const aoTeclar = (e: KeyboardEvent) => e.key === "Escape" && setAbertoEm(null);
-    aoRolar();
     window.addEventListener("scroll", aoRolar, { passive: true });
     window.addEventListener("keydown", aoTeclar);
     return () => {
@@ -51,11 +62,11 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-500 ${
-          fundo && !aberto ? "border-b border-borda/70 bg-fundo/70 backdrop-blur-md" : "border-b border-transparent"
+        className={`pointer-events-none fixed inset-x-0 top-3 z-50 flex justify-center px-3 transition-[transform,opacity] duration-500 ease-suave md:top-4 md:px-[var(--pad)] ${
+          visivel || aberto ? "translate-y-0 opacity-100" : "-translate-y-[170%] opacity-0"
         }`}
       >
-        <div className="flex h-20 items-center justify-between px-[clamp(20px,3.2vw,48px)]">
+        <div className="pointer-events-auto flex h-16 w-full max-w-[1680px] items-center justify-between rounded-full border border-white/10 bg-[#17181b]/70 px-5 shadow-[0_10px_40px_rgb(0_0_0/0.4)] backdrop-blur-xl md:px-8">
           <Link
             href="/"
             className="group flex items-center gap-3 text-[24px] font-medium tracking-[-0.02em]"
