@@ -15,7 +15,7 @@ type Formato = "site" | "identidade" | "reel" | "foto";
 
 // Cada formato tem a sua moldura, mas todas partilham a mesma altura de referência,
 // o mesmo alinhamento e o mesmo ritmo: mídia de um lado, legenda do outro, alternando.
-const razao: Record<Formato, number> = { site: 1.6, identidade: 1.33, reel: 0.5625, foto: 1.78 };
+const razao: Record<Formato, number> = { site: 1.6, identidade: 1.33, reel: 0.5625, foto: 1.5 };
 
 const formatoDe: Record<string, Formato> = {
   fisioflow: "site",
@@ -36,7 +36,11 @@ const host = (p: Projeto) => {
 };
 
 function Moldura({ p, formato }: { p: ComCapa; formato: Formato }) {
-  const r = razao[formato];
+  // Identidades usam a proporção real da imagem, para ela preencher o card sem bordas.
+  const r =
+    formato === "identidade"
+      ? Math.min(1.8, Math.max(1.2, p.capa.largura / p.capa.altura))
+      : razao[formato];
   const estilo = { aspectRatio: String(r), width: `min(100%, calc(var(--h) * ${r}))` };
   const imagem = (
     <Image
@@ -44,23 +48,29 @@ function Moldura({ p, formato }: { p: ComCapa; formato: Formato }) {
       alt={p.capa.alt}
       fill
       sizes="(min-width: 1024px) 58vw, 92vw"
-      className={
-        formato === "site"
-          ? "object-cover object-top"
-          : formato === "identidade"
-            ? "object-contain"
-            : "object-cover"
-      }
+      className={formato === "site" ? "object-cover object-top" : "object-cover"}
+    />
+  );
+  // Brilho que acompanha o cursor por cima do card.
+  const brilho = (
+    <span
+      data-brilho
+      aria-hidden="true"
+      className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500"
+      style={{
+        background:
+          "radial-gradient(420px circle at var(--mx,50%) var(--my,30%), rgb(255 255 255 / 0.16), transparent 50%)",
+      }}
     />
   );
 
   if (formato === "site") {
     return (
-      <div data-moldura style={estilo} className="flex flex-col overflow-hidden border border-borda bg-fundo-2">
-        <div className="flex h-7 shrink-0 items-center gap-1.5 border-b border-borda px-3">
-          <i className="size-1.5 rounded-full bg-borda" />
-          <i className="size-1.5 rounded-full bg-borda" />
-          <i className="size-1.5 rounded-full bg-borda" />
+      <div data-moldura style={estilo} className="cartao flex flex-col bg-fundo-2">
+        <div className="flex h-7 shrink-0 items-center gap-1.5 border-b border-white/10 px-3">
+          <i className="size-1.5 rounded-full bg-white/20" />
+          <i className="size-1.5 rounded-full bg-white/20" />
+          <i className="size-1.5 rounded-full bg-white/20" />
           <span className="rotulo ml-3 truncate !text-[10px] !normal-case !tracking-normal">{host(p)}</span>
         </div>
         <div className="relative flex-1 overflow-hidden">
@@ -68,30 +78,18 @@ function Moldura({ p, formato }: { p: ComCapa; formato: Formato }) {
             {imagem}
           </div>
         </div>
-      </div>
-    );
-  }
-
-  if (formato === "identidade") {
-    return (
-      <div data-moldura style={estilo} className="relative overflow-hidden bg-fundo-2">
-        <div data-img className="absolute inset-[6%]">
-          {imagem}
-        </div>
+        {brilho}
       </div>
     );
   }
 
   return (
-    <div
-      data-moldura
-      style={estilo}
-      className={`relative overflow-hidden bg-fundo-2 ${formato === "reel" ? "border border-borda" : ""}`}
-    >
-      <div data-img className="absolute -inset-[3%]">
+    <div data-moldura style={estilo} className="cartao relative bg-fundo-2">
+      <div data-img className="absolute -inset-[4%]">
         {imagem}
       </div>
       {formato === "reel" && <span className="rotulo absolute bottom-3 left-3">Reel · 9:16</span>}
+      {brilho}
     </div>
   );
 }
@@ -147,7 +145,13 @@ export default function Trabalhos({ projetos, total }: { projetos: ComCapa[]; to
         }
       });
 
-      // Reação ao cursor: a moldura inclina, a imagem e a legenda se deslocam em sentidos opostos.
+      // Os cards flutuam devagar, cada um no seu ritmo.
+      cenas.forEach((cena, i) => {
+        const m = cena.querySelector("[data-moldura]");
+        if (m) gsap.to(m, { y: -7, duration: 3.2 + i * 0.25, ease: "sine.inOut", yoyo: true, repeat: -1 });
+      });
+
+      // Reação ao cursor: o card inclina, a imagem e a legenda se deslocam em sentidos opostos.
       if (!ponteiroFino()) return;
       const limpar: (() => void)[] = [];
       cenas.forEach((cena) => {
@@ -155,6 +159,7 @@ export default function Trabalhos({ projetos, total }: { projetos: ComCapa[]; to
         const imagem = cena.querySelector<HTMLElement>("[data-img]");
         const legenda = cena.querySelector<HTMLElement>("[data-legenda]");
         if (!moldura || !imagem || !legenda) return;
+        const brilhoEl = moldura.querySelector<HTMLElement>("[data-brilho]");
         gsap.set(moldura, { transformPerspective: 1100 });
         const rx = gsap.quickTo(moldura, "rotationX", { duration: 0.9, ease: "power3.out" });
         const ry = gsap.quickTo(moldura, "rotationY", { duration: 0.9, ease: "power3.out" });
@@ -169,6 +174,10 @@ export default function Trabalhos({ projetos, total }: { projetos: ComCapa[]; to
           ix(-nx * 26);
           iy(-ny * 18);
           lx(nx * 10);
+          const r = moldura.getBoundingClientRect();
+          moldura.style.setProperty("--mx", `${((e.clientX - r.left) / r.width) * 100}%`);
+          moldura.style.setProperty("--my", `${((e.clientY - r.top) / r.height) * 100}%`);
+          brilhoEl?.style.setProperty("opacity", "1");
         };
         const sair = () => {
           rx(0);
@@ -176,6 +185,7 @@ export default function Trabalhos({ projetos, total }: { projetos: ComCapa[]; to
           ix(0);
           iy(0);
           lx(0);
+          brilhoEl?.style.setProperty("opacity", "0");
         };
         cena.addEventListener("pointermove", mover);
         cena.addEventListener("pointerleave", sair);

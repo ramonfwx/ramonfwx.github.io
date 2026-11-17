@@ -75,17 +75,18 @@ export default async function PaginaProjeto({ params }: Props) {
 
       <Reveal delay={0.1} className="mt-12">
         {principal ? (
-          <Image
-            src={principal.src}
-            alt={principal.alt}
-            width={principal.largura}
-            height={principal.altura}
-            priority
-            sizes="(min-width: 1320px) 1224px, 100vw"
-            className="h-auto w-full border border-borda"
-          />
+          <div className="cartao relative mx-auto aspect-[16/9] max-h-[64svh] w-full max-w-[1000px] bg-fundo-2">
+            <Image
+              src={principal.src}
+              alt={principal.alt}
+              fill
+              priority
+              sizes="(min-width: 1000px) 1000px, 100vw"
+              className="object-cover"
+            />
+          </div>
         ) : (
-          <div className="aspect-[16/9] border border-borda">
+          <div className="cartao mx-auto aspect-[16/9] w-full max-w-[1000px] bg-fundo-2">
             <PlaceholderImagem legenda="Imagem principal em breve. Adicione capturas de tela ou fotos em public/images/projetos/ e referencie em data/projetos.ts." />
           </div>
         )}

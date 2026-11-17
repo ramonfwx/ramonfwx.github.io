@@ -23,25 +23,51 @@ export default function Galeria({ imagens }: { imagens: Imagem[] }) {
 
   const atual = indice !== null ? imagens[indice] : null;
 
+  // Paralaxe do card: a imagem se desloca dentro dele, em sentido oposto ao cursor.
+  const inclinar = (e: React.PointerEvent<HTMLButtonElement>) => {
+    if (e.pointerType !== "mouse") return;
+    const el = e.currentTarget;
+    const r = el.getBoundingClientRect();
+    const nx = (e.clientX - r.left) / r.width - 0.5;
+    const ny = (e.clientY - r.top) / r.height - 0.5;
+    el.style.setProperty("--mx", `${(nx + 0.5) * 100}%`);
+    el.style.setProperty("--my", `${(ny + 0.5) * 100}%`);
+    const img = el.querySelector<HTMLElement>("[data-i]");
+    if (img) img.style.transform = `translate(${-nx * 18}px, ${-ny * 14}px)`;
+  };
+  const desinclinar = (e: React.PointerEvent<HTMLButtonElement>) => {
+    const img = e.currentTarget.querySelector<HTMLElement>("[data-i]");
+    if (img) img.style.transform = "";
+  };
+
   return (
     <>
-      <ul className="columns-1 gap-4 sm:columns-2">
+      <ul className="grid grid-cols-2 gap-3 md:gap-5 lg:grid-cols-3">
         {imagens.map((img, i) => (
-          <li key={img.src} className="mb-4 break-inside-avoid">
+          <li key={img.src}>
             <button
               type="button"
               onClick={() => setIndice(i)}
+              onPointerMove={inclinar}
+              onPointerLeave={desinclinar}
               aria-label={`Ampliar: ${img.alt}`}
-              className="group block w-full cursor-zoom-in overflow-hidden bg-fundo-2"
+              className="cartao group relative block aspect-[4/3] w-full cursor-zoom-in bg-fundo-2 hover:-translate-y-1 hover:shadow-[0_0_0_1px_rgb(255_255_255/0.14),0_44px_80px_-28px_rgb(0_0_0/0.9)] md:aspect-[16/10]"
             >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                width={img.largura}
-                height={img.altura}
-                sizes="(min-width: 640px) 50vw, 100vw"
-                loading="lazy"
-                className="h-auto w-full transition-transform duration-500 ease-suave group-hover:scale-[1.02]"
+              <span data-i className="absolute -inset-[5%] transition-transform duration-300 ease-out will-change-transform">
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  sizes="(min-width: 1024px) 33vw, 50vw"
+                  loading="lazy"
+                  className="object-cover"
+                />
+              </span>
+              <span
+                data-b
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                style={{ background: "radial-gradient(300px circle at var(--mx,50%) var(--my,30%), rgb(255 255 255 / 0.15), transparent 55%)" }}
               />
             </button>
           </li>
