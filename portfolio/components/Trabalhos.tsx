@@ -231,8 +231,7 @@ export default function Trabalhos({ projetos, total }: { projetos: ComCapa[]; to
             >
               <div
                 data-corpo
-                style={{ "--h": "min(58svh, 34vw)" } as React.CSSProperties}
-                className="flex h-full flex-col justify-center px-[var(--pad)] py-16 will-change-transform motion-safe:lg:pt-24"
+                className="[--h:100vw] lg:[--h:min(58svh,34vw)] flex h-full flex-col justify-center px-[var(--pad)] py-12 will-change-transform motion-safe:lg:pt-24"
               >
                 <div className="absolute inset-x-[var(--pad)] top-24 hidden items-center justify-between motion-safe:lg:flex">
                   <span className="rotulo !text-texto">03 — Trabalhos</span>

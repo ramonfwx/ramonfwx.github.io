@@ -47,15 +47,15 @@ export default function Sobre() {
     <section
       id="sobre"
       aria-labelledby="titulo-sobre"
-      className="relative border-t border-borda bg-fundo px-[var(--pad)] pt-24 md:pt-32"
+      className="relative border-t border-borda bg-fundo px-[var(--pad)] pt-20 md:pt-32"
     >
       <div className="mx-auto max-w-[1680px]">
         <h2 id="titulo-sobre" className="rotulo !text-texto">
           04 — Sobre mim
         </h2>
 
-        <div className="mt-12 grid gap-12 md:grid-cols-12 md:gap-8">
-          <div ref={moldura} className="relative aspect-[4/5] overflow-hidden bg-fundo-2 md:col-span-4">
+        <div className="mt-10 grid gap-10 md:grid-cols-12 md:gap-8">
+          <div ref={moldura} className="relative aspect-[5/4] overflow-hidden bg-fundo-2 md:col-span-4 md:aspect-[4/5]">
             <div ref={imagem} className="absolute inset-x-0 -inset-y-[7%]">
               {site.fotoSobre ? (
                 <Image
@@ -83,7 +83,7 @@ export default function Sobre() {
         </div>
 
         {/* Contato. */}
-        <div className="mt-28 border-t border-borda pt-14 md:mt-40 md:pt-20">
+        <div className="mt-20 border-t border-borda pt-12 md:mt-40 md:pt-20">
           <div className="grid gap-12 md:grid-cols-12 md:items-end md:gap-8">
             <div className="md:col-span-6">
               <Linhas

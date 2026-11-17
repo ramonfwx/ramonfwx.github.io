@@ -50,7 +50,7 @@ export default function Aneis({ className = "" }: { className?: string }) {
     const desenhar = (t: number) => {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, w, h);
-      const R = Math.min(w, h) * 0.4;
+      const R = Math.min(w, h) * 0.33;
       const cx = w / 2;
       const cy = h / 2;
 

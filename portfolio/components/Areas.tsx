@@ -134,7 +134,7 @@ export default function Areas() {
       aria-labelledby="titulo-areas"
       className="relative border-t border-borda motion-safe:lg:h-[calc(100svh+165svh)]"
     >
-      <div className="px-[var(--pad)] py-24 md:py-32 motion-safe:lg:sticky motion-safe:lg:top-0 motion-safe:lg:flex motion-safe:lg:h-svh motion-safe:lg:flex-col motion-safe:lg:justify-center motion-safe:lg:py-0 motion-safe:lg:pt-20">
+      <div className="px-[var(--pad)] py-16 md:py-32 motion-safe:lg:sticky motion-safe:lg:top-0 motion-safe:lg:flex motion-safe:lg:h-svh motion-safe:lg:flex-col motion-safe:lg:justify-center motion-safe:lg:py-0 motion-safe:lg:pt-20">
         <div className="mx-auto w-full max-w-[1680px]">
           <div className="mb-12 flex items-baseline justify-between gap-6 md:mb-16">
             <h2 id="titulo-areas" className="rotulo !text-texto">
